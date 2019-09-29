@@ -1,0 +1,33 @@
+<html>
+<head>
+  <script type="text/javascript" src="dist/main.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+</div>
+</body>
+
+
+<script type="text/javascript">
+var storedState   = localStorage.getItem('cppn-playground');
+var startingState = storedState ? JSON.parse(storedState) : null;
+
+var node = document.getElementById("app");
+var app  = Elm.Main.init({ flags: startingState, node: node });
+
+app.ports.setStorage.subscribe(function(state) {
+    localStorage.setItem('cppn-playground', JSON.stringify(state));
+});
+
+app.ports.resetModel.subscribe(function(newModel) {
+  // HACK: https://discourse.elm-lang.org/t/when-is-cmd-actually-processed/1008
+  requestAnimationFrame( function () {
+    resetModel(newModel);
+  });
+});
+</script>
+</html>
+

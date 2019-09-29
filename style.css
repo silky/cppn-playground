@@ -1,0 +1,155 @@
+body {
+  font-family: "Helvetica", "Arial";
+  margin:      0;
+}
+
+h1 {
+  font-family: "DM Serif Display";
+  font-weight: normal;
+  text-align:  center;
+  background:  linen;
+  margin:      0;
+  padding:     20px;
+}
+
+#app {
+  display:        flex;
+  flex-direction: column;
+}
+
+#top-controls {
+  display:         flex;
+  padding-top:     20px;
+  padding-bottom:  20px;
+  justify-content: space-evenly;
+  border-bottom:   solid 1px gray;
+}
+
+#top-controls div.buttons {
+  display:        flex;
+  flex-direction: row;
+  align-items:    center;
+}
+
+#top-controls div.item {
+  display:        flex;
+  flex-direction: column;
+}
+
+label {
+  color:     gray;
+  font-size: 0.7em;
+}
+
+p.big {
+  font-family: "Fira Code";
+  margin:      0;
+  font-size:   1.2em;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight:    normal;
+  font-size:      0.8em;
+  margin-left:    5px;
+  margin-right:   5px;
+}
+
+#network {
+  display:         flex;
+  justify-content: center;
+  flex-direction:  row;
+}
+
+#network div.item {
+  padding-left:  20px;
+  padding-right: 20px;
+}
+
+div.inputs {
+  width: 130px;
+}
+
+div.layer-top label {
+  margin-top:    5px;
+  margin-bottom: 5px;
+}
+
+div.layer-top {
+  height:         60px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+div.input span {
+  margin-right: 5px;
+  font-size:    0.8em;
+}
+
+div.input {
+  display:         flex;
+  flex-direction:  row;
+  justify-content: center;
+  align-items:     center;
+}
+
+div.row {
+  display:         flex;
+  flex-direction:  row;
+  align-items:     center;
+  justify-content: center;
+}
+
+button.ctl {
+  border-radius: 100px;
+  cursor:        pointer;
+  margin-left:   5px;
+  margin-right:  5px;
+  border:        none;
+  outline:       none;
+}
+
+button.ctl:focus {
+  background: floralwhite;
+}
+
+button.ctl:hover {
+  background: #eaeaff;
+}
+
+button.plus, button.minus {
+  background:      #eaeaea;
+  height:          30px;
+  width:           30px;
+  display:         flex;
+  justify-content: center;
+}
+
+#hidden-network {
+  display:        flex;
+  flex-direction: row;
+}
+
+div.layer {
+  background: ghostwhite;
+  padding:    20px;
+}
+
+div.neurons {
+  margin-top:      20px;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: center;
+  align-items:     center;
+}
+
+div.neurons canvas {
+  margin-top:    5px;
+  margin-bottom: 5px;
+  background:    #f5f5f5;
+}
+
+#final-neuron {
+  border: none;
+}
