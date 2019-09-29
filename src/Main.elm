@@ -334,3 +334,8 @@ neuron layerNumber neuronNumber
 --    - In general, make output layer customisable
 --
 --  Save in URL
+--
+--  Inputs
+--    - Make them toggleable
+--    - Norms
+--
