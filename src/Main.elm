@@ -339,3 +339,5 @@ neuron layerNumber neuronNumber
 --    - Make them toggleable
 --    - Norms
 --
+--  3D
+--    - Infinite 3D shape.
