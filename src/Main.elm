@@ -489,6 +489,7 @@ activationFunctions model current c
       mkOpt f = option [ value f, selected (current == f)] [ text f ]
     in
       select [ onInput c
+             , class "select-css"
              , disabled model.training
              ] <| List.map mkOpt allActivationFunctions
 
