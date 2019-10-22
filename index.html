@@ -1,33 +1,119 @@
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>CPPN Playground</title>
+  <script src="https://d3js.org/d3.v5.js"></script>
   <script type="text/javascript" src="dist/main.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/latent.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  <!-- <script type="text/javascript" src="js/tf.min.js"></script> -->
+  <script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+	<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
+
+    <a class="github-link" href="https://github.com/silky/cppn-playground" title="Source on GitHub" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60.5 60.5" width="60" height="60">
+      <polygon class="bg" points="60.5,60.5 0,0 60.5,0 "/>
+      <path class="icon" d="M43.1,5.8c-6.6,0-12,5.4-12,12c0,5.3,3.4,9.8,8.2,11.4c0.6,0.1,0.8-0.3,0.8-0.6c0-0.3,0-1,0-2c-3.3,0.7-4-1.6-4-1.6c-0.5-1.4-1.3-1.8-1.3-1.8c-1.1-0.7,0.1-0.7,0.1-0.7c1.2,0.1,1.8,1.2,1.8,1.2c1.1,1.8,2.8,1.3,3.5,1c0.1-0.8,0.4-1.3,0.8-1.6c-2.7-0.3-5.5-1.3-5.5-5.9c0-1.3,0.5-2.4,1.2-3.2c-0.1-0.3-0.5-1.5,0.1-3.2c0,0,1-0.3,3.3,1.2c1-0.3,2-0.4,3-0.4c1,0,2,0.1,3,0.4c2.3-1.6,3.3-1.2,3.3-1.2c0.7,1.7,0.2,2.9,0.1,3.2c0.8,0.8,1.2,1.9,1.2,3.2c0,4.6-2.8,5.6-5.5,5.9c0.4,0.4,0.8,1.1,0.8,2.2c0,1.6,0,2.9,0,3.3c0,0.3,0.2,0.7,0.8,0.6c4.8-1.6,8.2-6.1,8.2-11.4C55.1,11.2,49.7,5.8,43.1,5.8z"/>
+    </svg>
+  </a>
+
+
+<div id="app"> </div>
+<canvas width="1000" height="1000" id="big-output"></canvas>
+<div id="explanation">
+  <div class="block">
+    <h2>What is a CPPN?</h2>
+
+    <p> A "CPPN" &mdash; Compositional Pattern-Producting Network &mdash; is a
+    way of generating images through code!
+    </p>
+
+    <p> Here, we build our CPPN as a convolutional neural network, following the approach 
+    <a href="https://distill.pub/2018/differentiable-parameterizations/">here</a>
+    by Mordvintsev, et al., "Differentiable Image Parameterizations", Distill, 2018.
+
+    <h2>What can I do?</h2>
+
+    <h4>Look at the cool output image!</h4>
+    <p>
+    It was produced by the specific "network" configuration.
+    </p>
+
+    <h4>Change the network structure</h4>
+    <p>
+    You can add or remove "layers"; add or remove the number of "filters" per
+    layer, and you can change the "activation function" per layer. Just try
+    clicking lots of things and see what kind of images they produce!
+    </p>
+    <p>
+    Note that each layer is built on the one prior to it, so this gives you
+    some idea of what kind of shapes your network will be able to express.
+    </p>
+
+    <h4>Random Walk</h4>
+    <p>You can just see what kinds of pictures the current network
+    configuration can produce by clicking "Random walk". You'll see the final
+    image change. Pressing the button again stops it at that point.
+    </p>
+
+
+    <h4>Training</h4>
+    <p>You can paste an image (just click anywhere on the page and paste your
+    image from the clipboard) and get the network to try and replicate it by
+    clicking "train". Typicall it takes to about 2,000-3,000 epochs to do
+    well. Try running for longer!
+    </p>
+
+    <p>For fun, once trained, try carefully varying one of the little circles
+    from the latent vector. You should be able to transition between your
+    trained image, and a non-trained, random one.
+    </p>
+
+    <h4>Inputs/Latent Vector</h4>
+    <p>
+    You can also drag the little circles in the "Latent vector" input at the
+    front. These change the final image. In fact, this is all the "Random
+    walk" button does; it just moves these circles.
+    </p>
+
+
+    <h4>Downloading</h4>
+    <p>
+    One of the main benefits of a CPPN, over traditional generative image
+    approaches, is that we can generate images of arbitrary size. If you click
+    the "Download big" button, you'll get a 1000x1000 pixel version of your
+    image!
+    </p>
+
+    <h2>Notes</h2>
+
+    <ul>
+      <li>This is open source and a work in progress. Expect updates and
+        changes. </li>
+      <li>Depending on your browser, training will stop
+        if you switch tabs. That's okay; just come back to the tab and it will
+        continue on from where it stopped.
+      </li>
+      <li>This page was <i>heavily</i> inspired by the <a
+       href="https://playground.tensorflow.org/" rel="noopener">TensorFlow
+       Playground</a>.</li>
+    </ul>
+
+    <h2>About</h2>
+
+    <p>Built by Noon from the <a
+       href="https://braneshop.com.au/">Braneshop</a>.
+    </p>
+  </div>
 </div>
+
 </body>
-
-
-<script type="text/javascript">
-var storedState   = localStorage.getItem('cppn-playground');
-var startingState = storedState ? JSON.parse(storedState) : null;
-
-var node = document.getElementById("app");
-var app  = Elm.Main.init({ flags: startingState, node: node });
-
-app.ports.setStorage.subscribe(function(state) {
-    localStorage.setItem('cppn-playground', JSON.stringify(state));
-});
-
-app.ports.resetModel.subscribe(function(newModel) {
-  // HACK: https://discourse.elm-lang.org/t/when-is-cmd-actually-processed/1008
-  requestAnimationFrame( function () {
-    resetModel(newModel);
-  });
-});
-</script>
+<script type="text/javascript" src="js/index.js"></script>
 </html>
 
