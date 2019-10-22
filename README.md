@@ -44,6 +44,7 @@ Colour space
 General
 
 - [ ] Save in URL
+- [ ] Save an animation
 
 Inputs
 
