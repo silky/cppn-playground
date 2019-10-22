@@ -6340,6 +6340,7 @@ var author$project$Main$activationFunctions = F3(
 			_List_fromArray(
 				[
 					elm$html$Html$Events$onInput(c),
+					elm$html$Html$Attributes$class('select-css'),
 					elm$html$Html$Attributes$disabled(model.l)
 				]),
 			A2(elm$core$List$map, mkOpt, author$project$Main$allActivationFunctions));

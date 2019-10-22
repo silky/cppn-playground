@@ -375,10 +375,14 @@ class CppnNetwork {
         }
       }
 
-      var link      = document.createElement("a");
-      link.href     = node.toDataURL();
+      var e = document.getElementById("link");
+      e.innerHTML = "";
+      var link  = document.createElement("a");
+      link.href = node.toDataURL();
       link.download = "cppn-playground-big-image.png";
+      e.appendChild(link);
       link.click();
+
     });
   }
 }
