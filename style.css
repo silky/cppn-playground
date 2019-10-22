@@ -1,0 +1,295 @@
+body {
+  font-family: "Helvetica", "Arial";
+  margin:      0;
+}
+
+h1, h2, h3 {
+  font-family: "DM Serif Display";
+  font-weight: normal;
+}
+
+h1 {
+  text-align:  center;
+  background:  linen;
+  margin:      0;
+  padding:     20px;
+}
+
+#app {
+  display:        flex;
+  flex-direction: column;
+}
+
+#top-controls {
+  display:         flex;
+  padding-top:     20px;
+  padding-bottom:  20px;
+  justify-content: space-evenly;
+  border-bottom:   solid 1px gray;
+}
+
+#top-controls div.buttons {
+  display:        flex;
+  flex-direction: row;
+  align-items:    center;
+}
+
+#top-controls div.item {
+  display:        flex;
+  flex-direction: column;
+}
+
+label {
+  color:     gray;
+  font-size: 0.7em;
+}
+
+p.big {
+  font-family: "Fira Code";
+  margin:      0;
+  font-size:   1.2em;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight:    normal;
+  font-size:      0.8em;
+  margin-left:    5px;
+  margin-right:   5px;
+}
+
+#network {
+  display:         flex;
+  justify-content: center;
+  flex-direction:  row;
+}
+
+#network div.item {
+  padding-left:  20px;
+  padding-right: 20px;
+}
+
+div.inputs {
+  width: 150px;
+}
+
+div.layer-top label {
+  margin-top:    5px;
+  margin-bottom: 5px;
+}
+
+div.layer-top {
+  height:         75px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+div.input span {
+  margin-right: 5px;
+  font-size:    0.8em;
+}
+
+div.input {
+  display:         flex;
+  flex-direction:  row;
+  justify-content: center;
+  align-items:     center;
+}
+
+div.row {
+  display:         flex;
+  flex-direction:  row;
+  align-items:     center;
+  justify-content: center;
+}
+
+button.ctl:disabled {
+  cursor:     not-allowed;
+  background: #eaeaea !important;
+}
+
+button.ctl {
+  border-radius: 100px;
+  cursor:        pointer;
+  margin-left:   5px;
+  margin-right:  5px;
+  border:        none;
+  outline:       none;
+  margin-top:    10px;
+  margin-bottom: 10px;
+}
+
+button.ctl:focus {
+  background: floralwhite;
+}
+
+button.ctl:hover {
+  background: #eaeaff;
+}
+
+button.plus, button.minus {
+  background:      #eaeaea;
+  height:          30px;
+  width:           30px;
+  display:         flex;
+  justify-content: center;
+}
+
+#hidden-network {
+  display:        flex;
+  flex-direction: row;
+}
+
+div.layer {
+  background:  ghostwhite;
+  padding:     20px;
+  padding-top: 5px;
+}
+
+div.neurons {
+  margin-top:      20px;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: center;
+  align-items:     center;
+}
+
+div.neurons canvas {
+  margin-top:    5px;
+  margin-bottom: 5px;
+  background:    #f5f5f5;
+  border-radius: 5px;
+}
+
+#final-neuron {
+  border: none;
+}
+
+#latent-vector {
+  width:      100px;
+  height:     100px;
+  background: floralwhite;
+  border:     solid 1px #eaeaea;
+}
+
+#input-image {
+  margin-top:     20px;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+
+#input-image img {
+  margin-top:    10px;
+  border-radius: 5px;
+}
+
+#big-output {
+  display: none;
+}
+
+div.img-thingy img {
+	max-width: 100%;
+}
+
+div.img-thingy {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+}
+
+#actual-image-container {
+	justify-content: center;
+}
+
+#input-image label {
+  margin-top:    10px;
+  margin-bottom: 10px;
+}
+
+#input-image {
+  display: none;
+}
+
+div.row canvas {
+  margin: 5px;
+}
+
+#final-1, #final-2, #final-3 {
+  border-radius: 5px;
+  cursor:        pointer;
+}
+
+canvas { border: solid 2px white; }
+
+canvas.red   { border: solid 2px red;   }
+canvas.green { border: solid 2px green; }
+canvas.blue  { border: solid 2px blue;  }
+
+canvas.pick-red:hover   { border: solid 2px red;   cursor: pointer; }
+canvas.pick-green:hover { border: solid 2px green; cursor: pointer; }
+canvas.pick-blue:hover  { border: solid 2px blue;  cursor: pointer; }
+
+#explanation {
+  margin-top:      20px;
+  border-top:      solid 1px black;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: center;
+  align-items:     center;
+  background:      linen;
+}
+
+div.block {
+  width:       700px;
+  padding:     50px;
+  line-height: 25px;
+}
+
+
+div.block p {
+  margin-left:  20px;
+  margin-right: 20px;
+}
+
+div.block a {
+  color: mediumslateblue;
+}
+
+div.block a:hover {
+  color:      white;
+  background: mediumslateblue;
+}
+
+
+.github-link {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.github-link .bg {
+  fill: #000;
+  fill-opacity: 0.1;
+}
+
+.github-link:hover .bg {
+  fill-opacity: 0.3;
+}
+
+.github-link .icon {
+  fill: #fff;
+  fill-opacity: 0.6;
+}
+
+.github-link:hover .icon {
+  fill-opacity: 0.7;
+}
+
+
