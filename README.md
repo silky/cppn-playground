@@ -1,4 +1,7 @@
-# CPPN Playground
+# [CPPN Playground](https://silky.github.io/cppn-playground/)
+
+![](/images/cppn-playground.jpg)
+
 
 ### Dev
 
