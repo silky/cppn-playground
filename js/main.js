@@ -5380,7 +5380,7 @@ var elm$core$List$sort = function (xs) {
 };
 var author$project$Main$allActivationFunctions = elm$core$List$sort(
 	_List_fromArray(
-		['tanh', 'relu', 'selu', 'elu', 'relu6', 'softmax', 'softplus', 'softsign']));
+		['tanh', 'relu', 'selu', 'elu', 'relu6', 'softplus', 'softsign']));
 var elm$random$Random$int = F2(
 	function (a, b) {
 		return function (seed0) {
