@@ -13,3 +13,45 @@ Then, run a webserver in the `./dist` directory. For example,
 ```
 python3 -m http.server 8003
 ```
+
+### TODO
+
+Latent vectors
+
+- [x] Display them
+- [x] Edit them
+- [ ] Interpolate
+
+Matching
+
+- [x] Input an image to match
+- [x] Allow user to pick image
+
+Initialisation?
+
+- [ ] Different ones?
+- [ ] Reset it
+
+Colour space
+
+- [ ] Allow varying it
+- [ ] In general, make output layer customisable
+- [ ] Allow for colour palettes
+
+General
+
+- [ ] Save in URL
+
+Inputs
+
+- [ ] Make them toggleable
+- [ ] Norms
+- [ ] Try polar-coordinates intstead of x, y?
+
+3D
+
+- [ ] Infinite 3D shape.
+
+Misc
+
+- [ ] Add in [HSIC](https://arxiv.org/pdf/1908.01580.pdf)

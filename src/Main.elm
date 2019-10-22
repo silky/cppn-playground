@@ -565,35 +565,3 @@ neuron model layerNumber neuronNumber
       model
       (String.fromInt layerNumber ++ "-" ++ String.fromInt neuronNumber)
       []
-
--- TODO:
---  Latent vectors
---    [x] Display them
---    [x] Edit them
---    - Interpolate
---
---  Matching
---    [x] Input an image to match
---    [x] Allow user to pick image
---
---  Initialisation?
---    - Different ones?
---
---  Colour space
---    - ???
---    - In general, make output layer customisable
---    - Allow for colour palettes
---
---  Save in URL
---
---  Inputs
---    - Make them toggleable
---    - Norms
---    - Try polar-coordinates intstead of x, y?
---
---  3D
---    - Infinite 3D shape.
---
---
--- Add in HSIC?!?!?!
---  Mutual information stuffs?!?! 
