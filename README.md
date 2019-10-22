@@ -56,6 +56,7 @@ Inputs
 Outputs
 
 - [ ] Allow selecing different intermediate nodes
+- [ ] Plot the loss, when training
 
 3D
 

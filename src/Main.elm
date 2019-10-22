@@ -480,7 +480,6 @@ allActivationFunctions = List.sort
               , "selu"
               , "elu"
               , "relu6"
-              , "softmax"
               , "softplus"
               , "softsign"
               ]
