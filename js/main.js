@@ -6817,7 +6817,7 @@ var author$project$Main$output = function (model) {
 								_List_Nil,
 								_List_fromArray(
 									[
-										elm$html$Html$text('Paste an image!')
+										elm$html$Html$text('Drag an image here, or just paste from your clipboard.')
 									]))
 							])),
 						A2(
