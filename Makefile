@@ -21,4 +21,4 @@ devel:
 	commando -p cat -q -j \
 	| grep --line-buffered    $(WHITELIST)    \
 	| uniqhash                                \
-	| conscript make
+	| conscript make build

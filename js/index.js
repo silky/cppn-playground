@@ -35,8 +35,9 @@ app.ports.clearImage.subscribe(function () {
   document.getElementById("input-image").style.display = "none";
 });
 
+const elt = document.getElementById("uploaded-image");
+
 function setupClipboardListener (cropper, options) {
-  const elt = document.getElementById("uploaded-image");
   elt.onload = function () {
     document.getElementById("paste").style.display       = "none";
     document.getElementById("input-image").style.display = "flex";
@@ -93,4 +94,35 @@ requestAnimationFrame( function() {
   const image   = document.getElementById('uploaded-image');
   const cropper = new Cropper(image, options);
   setupClipboardListener(cropper, options);
+
+
+  const dropZone      = document.getElementById("paste");
+  dropZone.ondrop     = dropHandler;
+  dropZone.ondragover = dragOverHandler;
 });
+
+
+function dropHandler(ev) {
+  ev.preventDefault();
+  if (ev.dataTransfer.items) {
+    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        var blob = ev.dataTransfer.items[i].getAsFile();
+        if (blob !== null) {
+          var reader = new FileReader();
+          reader.onload = function(event) {
+            elt.src = event.target.result;
+
+          };
+          reader.readAsDataURL(blob);
+        }
+        return;
+      }
+    }
+  }
+}
+
+function dragOverHandler (ev) {
+  ev.preventDefault();
+}
+

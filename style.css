@@ -295,3 +295,12 @@ div.block a:hover {
 
 .select-css, .select-css option {
 }
+
+
+#paste {
+  border:  1px solid black;
+  width:   150px;
+  height:  150px;
+  padding: 10px;
+}
+

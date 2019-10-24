@@ -456,7 +456,7 @@ output model =
             , div [ class "neurons"   ]
                   [ finalNeuron model
                   ,  button [ class "ctl", onClick DownloadBig ] [ text "download big version" ] ]
-            , div [ id "paste", class "neurons" ] [ label [] [ text "Paste an image!" ] ]
+            , div [ id "paste", class "neurons" ] [ label [] [ text "Drag an image here, or just paste from your clipboard." ] ]
             , div [ id "input-image" ]
               --
               [ label [] [ text "Input image" ] 
