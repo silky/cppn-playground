@@ -264,6 +264,16 @@ div.block a:hover {
 }
 
 
+.braneshop-link {
+  width:    60px;
+  height:   60px;
+  position: absolute;
+  display:  block;
+  top:      10px;
+  left:     10px;
+}
+
+
 .github-link {
   width: 60px;
   height: 60px;
