@@ -83,10 +83,6 @@ class CppnNetwork {
 
           var nodeId = l + "-" + (i+1);
 
-          // if (nodeId == this.modelSpec.redNode)   { this.red   = tf.sigmoid(chunk.clone()); }
-          // if (nodeId == this.modelSpec.greenNode) { this.green = tf.sigmoid(chunk.clone()); }
-          // if (nodeId == this.modelSpec.blueNode)  { this.blue  = tf.sigmoid(chunk.clone()); }
-
           chunk = tf.image.resizeBilinear(chunk, [smallSize, smallSize]);
           chunk = tf.sigmoid(chunk).dataSync();
 
@@ -101,22 +97,6 @@ class CppnNetwork {
         l += 1;
       });
     }
-
-    // Render the final 3
-    // for (let i = 0; i < 3; i++) {
-    //   var newShape = [result.shape[0], result.shape[1], result.shape[2], i + 1];
-    //   var chunk    = result.stridedSlice([0, 0, 0, i], newShape, [1, 1, 1, 1]);
-    //   var nodeId   = "final-" + (i+1);
-
-    //   if (nodeId == this.modelSpec.redNode)   { this.red   = chunk.clone(); }
-    //   if (nodeId == this.modelSpec.greenNode) { this.green = chunk.clone(); }
-    //   if (nodeId == this.modelSpec.blueNode)  { this.blue  = chunk.clone(); }
-
-    //   const node   = document.getElementById(nodeId);
-    //   this.drawPicture(node, chunk.dataSync(), this.modelSpec.outputWidth, this.modelSpec.outputHeight, 0, 0, true);
-    // }
-
-    // var finalImage = tf.concat([this.red, this.green, this.blue], 3);
 
     // Render it in the final neuron
     const node = document.getElementById("final-neuron");
@@ -156,9 +136,6 @@ class CppnNetwork {
 
   /** */
   resetModel (newModelSpec) {
-    // console.log("Resetting model ...");
-    // console.table(tf.memory());
-    // Dispose the old network.
     if ( this.net ) {
       tf.dispose(this.net);
     }
@@ -170,8 +147,6 @@ class CppnNetwork {
 
     this.forward(true);
     latent.initialiseLatentVector();
-    // console.log("End of reset model ...");
-    // console.table(tf.memory());
   }
 
 
@@ -229,8 +204,6 @@ class CppnNetwork {
 
   /** */
   async startTraining (model) {
-    // console.log("Starting training...");
-    // console.table(tf.memory());
     this.training = true;
     this.net.compile({ "optimizer": "adam", "loss": tf.losses.meanSquaredError });
 
@@ -271,7 +244,6 @@ class CppnNetwork {
     tf.dispose(data);
 
     this.net = await tf.loadLayersModel("localstorage://cppn-playground");
-    // console.table(tf.memory());
   }
 
 
