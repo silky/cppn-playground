@@ -149,8 +149,6 @@ basicLayer = Layer 5 "tanh" 0.4
 
 init : Maybe Decode.Value -> ( Model, Cmd Msg )
 init maybeModel =
-  -- TODO: Load the model from JSON
-  --  Maybe.withDefault emptyModel maybeModel
   ( emptyModel
   , Cmd.batch [ Random.generate SetLatentVector (randomVector emptyModel.latentDimensions)
               -- , resetModel <| encodeModel emptyModel
